@@ -6,16 +6,16 @@
       <div class="container">
 
         <div class="row">
-            @for ($i = 0; $i < count($ids); $i++)
+            @foreach ($products as $product)
                 <div class="col-md-4">
                     <div class="card mb-4 shadow-sm">
-                        <img class="card-img-top" src="{{ $products[$ids[$i]]["image_url"] }}" alt="Card image cap">
+                        <img class="card-img-top" src="{{ $product["image_url"] }}" alt="Card image cap">
                         <div class="card-body">
-                           <a href="{{ route("product", $ids[$i]) }}"> <p class="card-text">Product :: {{ $products[$ids[$i]]["title"] }}</p> </a>
+                           <a href="{{ route("product", $product["title"]) }}"> <p class="card-text">Product :: {{ $product["title"] }}</p> </a>
                         </div>
                     </div>
                 </div>
-            @endfor
+            @endforeach
 
 
 

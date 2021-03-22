@@ -29,16 +29,16 @@ class ProductController extends Controller
     public function show() {
         return view('products.home_products', [
             "products" => $this->db()['products'],
-            "ids" => array_keys($this->db()['products']),
         ]);
     }
 
     public function showProduct($id) {
+        $product = collect($this->db()['products'])->filter(function($x) use($id) {return $x["title"] == $id ? $x : "";})->flatMap(function($x) {return $x;});
+        if($product->count() == 0) abort(404);
+
         return view("products.product.home_product", [
             "products" => $this->db()['products'],
-            "product" => $this->db()['products']["$id"],
-            "ids" => array_keys($this->db()['products']),
-            "id" => $id,
+            "product" => $product,
         ]);
     }
 }

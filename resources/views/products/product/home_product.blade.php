@@ -47,20 +47,21 @@
         <div class="container">
 
           <div class="row">
-              @for ($i = 0; $i < count($ids); $i++)
-                @if($ids[$i] != $id)
-                    <div class="col-md-6">
-                        <div class="card mb-2 shadow-sm">
-                            <img class="card-img-top" src="{{ $products[$ids[$i]]["image_url"] }}" alt="Card image cap">
-                            <div class="card-body">
-                                <a href="{{ route("product", $ids[$i]) }}"> <p class="card-text" style='font-size: 25px'>Product :: {{ $products[$ids[$i]]["title"] }}</p> </a>
-                            </div>
+              @foreach ($products as $prod)
+                @if ($prod["title"] != $product["title"])
+                <div class="col-md-6">
+                    <div class="card mb-2 shadow-sm">
+                        <img class="card-img-top" src="{{ $prod["image_url"] }}" alt="Card image cap">
+                        <div class="card-body">
+                            <a href="{{ route("product", $prod['title']) }}"> <p class="card-text" style='font-size: 25px'>Product :: {{ $prod["title"] }}</p> </a>
                         </div>
                     </div>
-                  @endif
-              @endfor
+                </div>
+                @endif
+              @endforeach
           </div>
         </div>
       </div>
 </center>
+
 @endsection
