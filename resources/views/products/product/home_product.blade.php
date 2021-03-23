@@ -7,7 +7,7 @@
 <center >
     <div class="row" style="width: 100%;">
         <div class="col-sm-6 push-bit">
-            <a href="#" class="gallery-link"><img src="{{ $product["image_url"] }}" alt="" class="img-responsive push-bit" /></a>
+            <a href="#" class="gallery-link"><img src="{{ $product["image_url"] }}" alt="" class="img-responsive push-bit" width="85%" /></a>
         </div>
         <div class="col-sm-4 push-bit" style="text-align: left;">
             <div class="clearfix">
